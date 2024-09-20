@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('{{ asset("img/back.jpg") }}');
+            background-image: url('{{ asset("assets/img/back.jpg") }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -26,7 +26,7 @@
             <div class="card shadow-lg p-3 mb-5 bg-white rounded ">
                 <div class="card-body text-center">
 
-                    <img src="{{ asset('img/catto.jpg') }}" alt="Cat" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="{{ asset('assets/img/catto.jpg') }}" alt="Cat" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
 
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
