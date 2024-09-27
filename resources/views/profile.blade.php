@@ -30,15 +30,15 @@
 
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
-                        <?= $nama ?>
+                        <p>{{$nama}}</p>
                     </div>
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
-                        <?= $kelas ?>
+                    <p>{{$npm}}</p>
                     </div>
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
-                        <?= $npm ?>
+                    <p>{{$nama_kelas ?? 'Kelas tidak ditemukan'}}</p>
                     </div>
                 </div>
             </div>

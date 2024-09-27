@@ -37,17 +37,27 @@
 
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama:</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
+                <input type="text" class="form-control" id="nama" name="nama">
+                @foreach($errors->get('nama') as $msg)
+                <p class ="text-danger">{{$msg}}</p>
+                @endforeach
             </div>
 
             <div class="mb-3">
                 <label for="npm" class="form-label">NPM:</label>
-                <input type="text" class="form-control" id="npm" name="npm" required>
+                <input type="text" class="form-control" id="npm" name="npm">
+                @foreach($errors->get('npm') as $msg)
+                <p class ="text-danger">{{$msg}}</p>
+                @endforeach
             </div>
 
             <div class="mb-3">
-                <label for="kelas" class="form-label">Kelas:</label>
-                <input type="text" class="form-control" id="kelas" name="kelas" required>
+                <label for="id_kelas" class="form-label">Kelas:</label><br>
+                <select name="kelas_id" id="kelas_id" required>
+                    @foreach ($kelas as $kelasItem)
+                    <option value="{{$kelasItem->id}}">{{$kelasItem->nama_kelas}}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="d-grid">
