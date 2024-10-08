@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6"> 
+        <div class="col-md-6">
             <div class="form-container">
                 <h2 class="form-title">Form Data Mhs</h2>
 
-                <form action="{{ route('user.store') }}" method="POST">
+                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
         <div class="mb-3">
@@ -33,6 +33,11 @@
                 <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto:</label><br>
+            <input type="file" id="foto" name="foto"><br>
         </div>
 
         <div class="d-grid">

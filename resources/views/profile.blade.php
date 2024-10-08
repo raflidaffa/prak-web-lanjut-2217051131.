@@ -26,19 +26,19 @@
             <div class="card shadow-lg p-3 mb-5 bg-white rounded ">
                 <div class="card-body text-center">
 
-                    <img src="{{ asset('assets/img/catto.jpg') }}" alt="Cat" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="{{ asset('upload/img/' . $user->foto) }}" alt="Img" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
 
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
-                        <p>{{$nama}}</p>
+                        <p>{{$user-> nama}}</p>
                     </div>
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
-                    <p>{{$npm}}</p>
+                    <p>{{$user-> npm}}</p>
                     </div>
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
-                    <p>{{$nama_kelas ?? 'Kelas tidak ditemukan'}}</p>
+                    <p>{{$user -> nama_kelas ?? 'Kelas tidak ditemukan'}}</p>
                     </div>
                 </div>
             </div>
