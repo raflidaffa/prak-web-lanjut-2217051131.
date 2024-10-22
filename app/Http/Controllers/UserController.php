@@ -23,6 +23,8 @@ class UserController extends Controller
             'nama' => $nama,
             'kelas' => $kelas,
             'npm' => $npm,
+            'jurusan' => $jurusan,
+            'semester' => $semester,
            ];
 
      return view('profile', $data);
@@ -35,6 +37,8 @@ public function store(Request $request)
         'nama' => 'required|string|max:255',
         'npm' => 'required|string|max:255',
         'kelas_id' => 'required|integer',
+        'jurusan' => 'required|string|max:255',
+        'semester' => 'required|integer|min:1|max:8',
         'foto' => 'image|file|max:2048',
     ]);
 
@@ -52,6 +56,8 @@ public function store(Request $request)
     $this->userModel->create([
         'nama' => $request->input('nama'),
         'npm' => $request->input('npm'),
+        'jurusan' => $request->input('jurusan'),
+        'semester' => $request->input('semester'),
         'kelas_id' => $request->input('kelas_id'),
         'foto' => $fotoName, // Menyimpan path foto
     ]);

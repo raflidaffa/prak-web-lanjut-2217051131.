@@ -38,6 +38,14 @@
                     </div>
 
                     <div class="bg-secondary text-white rounded-pill p-2 mb-3">
+                    <p>{{$user-> jurusan}}</p>
+                    </div>
+
+                    <div class="bg-secondary text-white rounded-pill p-2 mb-3">
+                    <p>{{$user-> semester}}</p>
+                    </div>
+
+                    <div class="bg-secondary text-white rounded-pill p-2 mb-3">
                     <p>{{$user -> nama_kelas ?? 'Kelas tidak ditemukan'}}</p>
                     </div>
                 </div>
