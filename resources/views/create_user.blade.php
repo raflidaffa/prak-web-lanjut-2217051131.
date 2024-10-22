@@ -1,48 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="form-container">
-                <h2 class="form-title">Form Data Mhs</h2>
+<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+<div class="blur-background"></div>
 
-        <div class="mb-3">
-            <label for="nama" class="form-label">Nama:</label>
-            <input type="text" class="form-control" id="nama" name="nama">
-            @foreach($errors->get('nama') as $msg)
-            <p class="text-danger">{{ $msg }}</p>
-            @endforeach
-        </div>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="width: 24rem;">
 
-        <div class="mb-3">
-            <label for="npm" class="form-label">NPM:</label>
-            <input type="text" class="form-control" id="npm" name="npm">
-            @foreach($errors->get('npm') as $msg)
-            <p class="text-danger">{{ $msg }}</p>
-            @endforeach
-        </div>
+        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama :</label>
+                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" placeholder="Nama">
+                @error('nama')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <div class="mb-3">
-            <label for="kelas_id" class="form-label">Kelas:</label><br>
-            <select name="kelas_id" id="kelas_id" class="form-control" required>
-                @foreach ($kelas as $kelasItem)
-                <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
-                @endforeach
-            </select>
-        </div>
+            <div class="mb-3">
+                <label for="npm" class="form-label">NPM :</label>
+                <input type="text" name="npm" class="form-control @error('npm') is-invalid @enderror" value="{{ old('npm') }}" placeholder="NPM">
+                @error('npm')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <div class="mb-3">
-            <label for="foto" class="form-label">Foto:</label><br>
-            <input type="file" id="foto" name="foto"><br>
-        </div>
+            <div class="mb-3">
+                <label for="kelas" class="form-label">Kelas :</label>
+                <select name="kelas_id" class="form-control @error('kelas_id') is-invalid @enderror">
+                    @foreach($kelas as $kelasItem)
+                        <option value="{{ $kelasItem->id }}" {{ old('kelas_id') == $kelasItem->id ? 'selected' : '' }}>
+                            {{ $kelasItem->nama_kelas }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('kelas_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <div class="d-grid">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+            <!-- Tambahkan input untuk jurusan -->
+            <div class="mb-3">
+                <label for="jurusan" class="form-label">Jurusan :</label>
+                <input type="text" name="jurusan" class="form-control @error('jurusan') is-invalid @enderror" value="{{ old('jurusan') }}" placeholder="Jurusan">
+                @error('jurusan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Tambahkan input untuk semester -->
+            <div class="mb-3">
+                <label for="semester" class="form-label">Semester :</label>
+                <input type="number" name="semester" class="form-control @error('semester') is-invalid @enderror" value="{{ old('semester') }}" placeholder="Semester">
+                @error('semester')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Tambahkan input untuk foto -->
+            <div class="mb-3">
+                <label for="foto" class="form-label">Foto</label>
+                <input class="form-control" type="file" id="foto" name="foto">
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
